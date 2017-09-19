@@ -1,6 +1,15 @@
-Rails.application.routes.draw do
-  devise_for :users
+Bloccipedia::Application.routes.draw do
+  get 'welcome/index'
+  get 'welcome/about'
+  root 'welcome#index'
+
+  devise_for :users 
+
+  
+
 end
 
 
-# { confirmations: 'confirmations' }
+
+
+# 
