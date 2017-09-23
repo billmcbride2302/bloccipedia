@@ -1,0 +1,14 @@
+<div class="wiki-show">
+    <small>
+      <h3> <%= @wiki.title %></h3>
+      submitted <%= time_ago_in_words(@wiki.created_at) %>
+    </small>
+  <div class="col-md-16">
+    <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-primary' %>
+
+    <div class="user-info pull-left">
+    <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Hey man, you sure you really want to do this? Consider your options dude.' } %>
+  </div>
+</div>
+
+  
