@@ -5,6 +5,8 @@
  gem 'rails', '>= 5.0.0.rc2', '< 5.1'
  gem 'devise'
  gem 'bootstrap-sass'
+ gem "pundit"
+ gem 'faker'
  
  group :production do
    gem 'pg'
