@@ -1,10 +1,10 @@
 <div class="wiki-show">
-  <h1> <%= markdown(@wiki.title) %> </h1>
+  <h1> <%= (@wiki.title) %> </h1>
     <small>
       submitted <%= time_ago_in_words(@wiki.created_at) %>
     </small>
     <div class="col-md-16">
-      <p><%= markdown(@wiki.body) %></p>
+      <p><%= (@wiki.body) %></p>
       <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-primary' %>
 
       <div class="user-info pull-right">

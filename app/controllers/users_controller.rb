@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   respond_to :html, :js
+  include ActiveModel::AttributeMethods
   def update
   	@user = User.find(params[:id])
     name = @user.name

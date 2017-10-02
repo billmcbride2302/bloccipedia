@@ -1,9 +1,9 @@
 class WikisController < ApplicationController
   include ApplicationHelper
 
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
 
-  after_action :verify_authorized, :except => :index
+  # after_action :verify_authorized, :except => :index
 
   def index
     @wikis = policy_scope(Wiki)
@@ -37,7 +37,7 @@ class WikisController < ApplicationController
   def edit
     @wiki = Wiki.find(params[:id])
     @users = User.all
-    @collaborator = Collaborator.new
+    # @collaborator = Collaborator.new
     authorize @wiki
   end
 

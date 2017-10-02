@@ -40,4 +40,14 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
+<h3>Modify my account</h3>
+
+<% if current_user.role == 'premium' %>
+  <p> <%= button_to "Downgrade Account to Standard", downgrade_user_path(current_user), class: 'btn btn-primary', data: { confirm: "WARNING: Private Wikis will become public upon downgrade. Continue?" }, method: :post %> </p>
+<% end %>
+
+<% if current_user.role == 'standard' || current_user.role == 'admin' %>
+  <p> <%= link_to "Premium Plan", new_charge_path, class: 'btn btn-info' %> <br>
+<% end %>
+
 <%= link_to "Back", :back %>

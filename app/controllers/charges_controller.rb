@@ -69,7 +69,7 @@
   def new
     @stripe_btn_data = {
       key: "#{ Rails.configuration.stripe[:publishable_key] }",
-      description: "Premium Membership - #{current_user.name}",
+      # description: "Premium Membership - #{current_user.name}",
       amount: 10_00
     }
   end
