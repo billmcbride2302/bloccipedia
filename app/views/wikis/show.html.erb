@@ -1,14 +1,13 @@
 <div class="wiki-show">
+  <h1> <%= markdown(@wiki.title) %> </h1>
     <small>
-      <h3> <%= @wiki.title %></h3>
       submitted <%= time_ago_in_words(@wiki.created_at) %>
     </small>
-  <div class="col-md-16">
-    <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-primary' %>
+    <div class="col-md-16">
+      <p><%= markdown(@wiki.body) %></p>
+      <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-primary' %>
 
-    <div class="user-info pull-left">
-    <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Hey man, you sure you really want to do this? Consider your options dude.' } %>
-  </div>
-</div>
-
-  
+      <div class="user-info pull-right">
+      <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
+      </div>
+    </div>

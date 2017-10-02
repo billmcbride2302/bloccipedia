@@ -5,6 +5,17 @@
   <div class="row">
     <h1 class="wiki-center"> Public Wikis </h1>
       <div class="box-solid">
-        
+        <% @wikis.each do |wiki| %>
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">
+                <%= link_to markdown(wiki.title), wiki %> <% if wiki.private? %> PRIVATE <% end %>
+              </h4>
+              <small>
+                <%= markdown(wiki.body) %> ________________________________________________________________________________________
+              </small>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>

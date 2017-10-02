@@ -7,6 +7,9 @@
  gem 'bootstrap-sass'
  gem "pundit"
  gem 'faker'
+ gem 'stripe'
+ gem 'figaro'
+ gem 'redcarpet'
  
  group :production do
    gem 'pg'
