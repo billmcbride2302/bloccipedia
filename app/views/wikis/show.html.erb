@@ -1,13 +1,25 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Home", welcome_index_path%></li>
+  <li><%= link_to "Wikis", wikis_path%></li>
+</ol>
+
 <div class="wiki-show">
-  <h1> <%= (@wiki.title) %> </h1>
-    <small>
+  <h1 id="wiki-title"> <%= markdown(@wiki.title) %> </h1>
+    <small id="wiki-submit">
       submitted <%= time_ago_in_words(@wiki.created_at) %>
     </small>
-    <div class="col-md-16">
-      <p><%= (@wiki.body) %></p>
+    <div class="col-md-16" id="wiki-body">
+      <p><%= markdown(@wiki.body) %></p>
       <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-primary' %>
 
-      <div class="user-info pull-right">
+      <div class="user-info" id="wiki-box">
       <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
       </div>
     </div>
+
+    <% if @wiki.private %>
+      <% if Collaborator.exists?(wiki_id: @wiki) %>
+        <%= render partial: 'collaborators/users' %>
+      <% end %>
+    <% end %>
+

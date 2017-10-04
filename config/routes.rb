@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'charges#new'
+  root to: 'welcome#index'
   devise_for :users
   resources :users do
     member do
